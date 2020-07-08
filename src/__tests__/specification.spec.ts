@@ -6,7 +6,7 @@ describe("Specification", () => {
       super();
     }
 
-    isSatisfiedBy(num: number): boolean {
+    public async isSatisfiedBy(num: number): Promise<boolean> {
       return num > this.num;
     }
   }
@@ -19,12 +19,12 @@ describe("Specification", () => {
   });
 
   it("should be a predicate on its own", () => {
-    expect(gt1.isSatisfiedBy(1)).toBe(false);
-    expect(gt5.isSatisfiedBy(10)).toBe(true);
-    expect(gt9.isSatisfiedBy(8)).toBe(false);
+    expect(gt1.isSatisfiedBy(1)).resolves.toBe(false);
+    expect(gt5.isSatisfiedBy(10)).resolves.toBe(true);
+    expect(gt9.isSatisfiedBy(8)).resolves.toBe(false);
   });
 
-  it("should support AND specification", async () => {
+  it("should support AND specification", () => {
     const gt1n5 = gt1.and(gt5);
     const gt5n9 = gt5.and(gt9);
 
