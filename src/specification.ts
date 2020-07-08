@@ -1,9 +1,7 @@
 import { Predicate } from "./predicate";
 
-export abstract class BaseSpecification<T = any> implements Predicate<T> {
-  public async isSatisfiedBy(item: T): Promise<boolean> {
-    return false;
-  }
+export abstract class Specification<T = any> implements Predicate<T> {
+  public abstract async isSatisfiedBy(item: T): Promise<boolean>;
 
   public and(spec: Predicate<T>): Predicate<T> {
     return new AndSpecification<T>(this, spec);
@@ -14,7 +12,7 @@ export abstract class BaseSpecification<T = any> implements Predicate<T> {
   }
 }
 
-class AndSpecification<T = any> extends BaseSpecification<T> {
+class AndSpecification<T = any> extends Specification<T> {
   constructor(
     private readonly left: Predicate<T>,
     private readonly right: Predicate<T>,
@@ -30,7 +28,7 @@ class AndSpecification<T = any> extends BaseSpecification<T> {
   }
 }
 
-class OrSpecification<T = any> extends BaseSpecification<T> {
+class OrSpecification<T = any> extends Specification<T> {
   constructor(
     private readonly left: Predicate<T>,
     private readonly right: Predicate<T>,
@@ -45,5 +43,3 @@ class OrSpecification<T = any> extends BaseSpecification<T> {
     return leftSatisfied || rightSatisfied;
   }
 }
-
-export class Specification<T> extends BaseSpecification<T> {}
