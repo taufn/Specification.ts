@@ -17,7 +17,18 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "yarn test --watch",
+    "test:coverage": "rimraf coverage && yarn test --coverage",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "format": "prettier --write --list-different",
+    "format:all": "yarn format \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\"",
+    "lint:fix": "yarn lint --fix",
+    "commit": "git cz",
+    "commit:all": "git add . && yarn commit",
+    "ca": "yarn commit:all"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
@@ -31,6 +42,7 @@
     "eslint-plugin-import": "^2.22.0",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.1.1",
     "ts-loader": "^7.0.5",
     "ts-node": "^8.10.2",
