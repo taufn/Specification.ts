@@ -5,7 +5,8 @@
   "description": "Specification pattern implementation in TypeScript, adapted from @acanimal's Node Specification Pattern",
   "author": {
     "name": "Taufan Arsyad",
-    "email": "47877123+taufn@users.noreply.github.com"
+    "email": "47877123+taufn@users.noreply.github.com",
+    "url": "https://medium.com/@taufn"
   },
   "keywords": [
     "node",
