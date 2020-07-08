@@ -34,7 +34,7 @@ describe("Specification", () => {
     expect(gt5n9.isSatisfiedBy(18)).resolves.toBe(true);
   });
 
-  it("should support AND specification", () => {
+  it("should support OR specification", () => {
     const gt1o5 = gt1.or(gt5);
     const gt5o9 = gt5.or(gt9);
 
@@ -42,5 +42,15 @@ describe("Specification", () => {
     expect(gt1o5.isSatisfiedBy(1)).resolves.toBe(false);
     expect(gt5o9.isSatisfiedBy(8)).resolves.toBe(true);
     expect(gt5o9.isSatisfiedBy(1)).resolves.toBe(false);
+  });
+
+  it("should support NOT specification", () => {
+    const gt1lt5 = gt1.not(gt5);
+    const gt1lt9 = gt1.not(gt9);
+
+    expect(gt1lt5.isSatisfiedBy(3)).resolves.toBe(true);
+    expect(gt1lt5.isSatisfiedBy(5)).resolves.toBe(false);
+    expect(gt1lt9.isSatisfiedBy(8)).resolves.toBe(true);
+    expect(gt1lt9.isSatisfiedBy(10)).resolves.toBe(false);
   });
 });
