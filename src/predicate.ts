@@ -1,3 +1,3 @@
-export interface Predicate {
-  isSatisfiedBy(item: any): boolean | Promise<boolean>;
+export interface Predicate<T = any> {
+  isSatisfiedBy(item: T): boolean | Promise<boolean>;
 }
