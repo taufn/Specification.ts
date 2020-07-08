@@ -33,4 +33,14 @@ describe("Specification", () => {
     expect(gt5n9.isSatisfiedBy(8)).resolves.toBe(false);
     expect(gt5n9.isSatisfiedBy(18)).resolves.toBe(true);
   });
+
+  it("should support AND specification", () => {
+    const gt1o5 = gt1.or(gt5);
+    const gt5o9 = gt5.or(gt9);
+
+    expect(gt1o5.isSatisfiedBy(3)).resolves.toBe(true);
+    expect(gt1o5.isSatisfiedBy(1)).resolves.toBe(false);
+    expect(gt5o9.isSatisfiedBy(8)).resolves.toBe(true);
+    expect(gt5o9.isSatisfiedBy(1)).resolves.toBe(false);
+  });
 });
