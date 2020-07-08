@@ -1,8 +1,10 @@
-/**
- * Sample function to test build.
- * @param a - Param A
- * @param b - Param B
- */
-export function Specification<T = any, U = any>(a: T, b: U): boolean {
-  return typeof a !== "undefined" && typeof b !== "undefined";
+import { Predicate } from "./predicate";
+
+export abstract class Specification implements Predicate {
+  /**
+   * Default predicate, always return `false` just to be safe.
+   */
+  isSatisfiedBy(item: any): boolean {
+    return false;
+  }
 }
