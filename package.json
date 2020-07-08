@@ -1,0 +1,15 @@
+{
+  "name": "@taufn/specification-ts",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Specification pattern implementation in TypeScript, adapted from @acanimal's Node Specification Pattern",
+  "author": {
+    "name": "Taufan Arsyad",
+    "email": "47877123+taufn@users.noreply.github.com"
+  },
+  "keywords": ["node", "specification", "pattern", "javascript", "typescript"],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
