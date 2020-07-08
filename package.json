@@ -1,13 +1,9 @@
 {
   "name": "@taufn/specification-ts",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "Specification pattern implementation in TypeScript, adapted from @acanimal's Node Specification Pattern",
-  "author": {
-    "name": "Taufan Arsyad",
-    "email": "47877123+taufn@users.noreply.github.com",
-    "url": "https://medium.com/@taufn"
-  },
+  "author": "Taufan Arsyad <47877123+taufn@users.noreply.github.com> (https://medium.com/@taufn)",
   "keywords": [
     "node",
     "specification",
@@ -15,13 +11,20 @@
     "javascript",
     "typescript"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/taufn/Specification.ts#readme",
+  "bugs": {
+    "url": "https://github.com/taufn/Specification.ts/issues"
+  },
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "yarn test --watch",
     "test:coverage": "rimraf coverage && yarn test --coverage",
     "prebuild": "rimraf dist",
-    "build": "tsc",
+    "build": "tsc -p ./tsconfig.build.json",
     "format": "prettier --write --list-different",
     "format:all": "yarn format \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\"",
