@@ -3,15 +3,15 @@ import { Predicate } from "./predicate";
 export abstract class Specification<T = any> implements Predicate<T> {
   public abstract async isSatisfiedBy(item: T): Promise<boolean>;
 
-  public and(spec: Predicate<T>): Predicate<T> {
+  public and(spec: Predicate<T>): Specification<T> {
     return new AndSpecification<T>(this, spec);
   }
 
-  public or(spec: Predicate<T>): Predicate<T> {
+  public or(spec: Predicate<T>): Specification<T> {
     return new OrSpecification<T>(this, spec);
   }
 
-  public not(spec: Predicate<T>): Predicate<T> {
+  public not(spec: Predicate<T>): Specification<T> {
     return new NotSpecification<T>(spec);
   }
 }
